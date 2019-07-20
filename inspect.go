@@ -11,11 +11,14 @@ import (
 )
 
 var (
-	fVerbose = flag.Bool("v", false, "verbose")
+	fVerbose    = flag.Bool("v", false, "verbose")
+	fSingleHash = flag.Bool("s", false, "single hash enabled")
 )
 
 func init() {
 	flag.Parse()
+
+	bencode.SetSingleHashEnabled(*fSingleHash)
 }
 
 func main() {
