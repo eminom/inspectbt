@@ -12,6 +12,7 @@ import (
 
 var (
 	fVerbose    = flag.Bool("v", false, "verbose")
+	fVerboseTwo = flag.Bool("vv", false, "verbose more")
 	fSingleHash = flag.Bool("s", false, "single hash enabled")
 )
 
@@ -42,7 +43,10 @@ func main() {
 		log.Printf("warnings: still some bytes left: %v", left)
 	}
 
-	if *fVerbose {
+	if *fVerbose || *fVerboseTwo {
+		if *fVerboseTwo {
+			bencode.SetVerboseLevel(2)
+		}
 		bencode.PrintNode(node, node.Cat, 2)
 	}
 
