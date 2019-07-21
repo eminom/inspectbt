@@ -25,6 +25,7 @@ func main() {
 
 	// log.Printf("%v", bencode.BNodeStringHex)
 	// os.Exit(-1)
+	log.SetFlags(log.Lshortfile)
 
 	if len(flag.Args()) < 1 {
 		log.Fatal("error: parameter")

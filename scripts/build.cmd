@@ -1,2 +1,4 @@
 go build -o build/inspect.exe inspect.go 
-echo Y|xcopy build\inspect.exe F:\D\Programs\bin
+go build -o build/randfile.exe randfile.go
+xcopy build\inspect.exe F:\D\Programs\bin /Y
+xcopy build\randfile.exe F:\D\Programs\bin /Y
