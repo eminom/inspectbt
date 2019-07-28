@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/eminom/gobencode"
 )
@@ -26,7 +27,8 @@ func main() {
 
 	// log.Printf("%v", bencode.BNodeStringHex)
 	// os.Exit(-1)
-	log.SetFlags(log.Lshortfile)
+	log.SetFlags(log.Lshortfile | log.Ltime)
+	startTS := time.Now()
 
 	if len(flag.Args()) < 1 {
 		log.Fatal("error: parameter")
@@ -65,4 +67,5 @@ func main() {
 	}
 
 	log.Printf("verified: %v", verified)
+	log.Printf("time elapsed: %v", time.Now().Sub(startTS))
 }
